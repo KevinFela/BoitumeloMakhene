@@ -2,251 +2,160 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>FUGLYMAMMIE</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FuglyMammie - Under Construction</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-/* --- Your existing CSS --- */
-*, *::before, *::after { box-sizing: border-box; }
-body { font-family:'Poppins',Arial,sans-serif; background:#ffe4ec; margin:0; color:#111; }
-header, footer { background:#fff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; box-shadow:0 2px 8px #ffb6c1aa; }
-header h1 { color:#ff1493; margin:0; font-weight:800; font-size:2rem; text-transform:uppercase; }
-nav a { margin-left:15px; color:#ff1493; cursor:pointer; font-weight:600; font-size:1rem; }
-section { max-width:900px; margin:40px auto; padding:0 20px; }
-h2 { color:#ff1493; font-weight:700; text-align:center; margin-bottom:30px; font-size:2rem; }
-.slider-container { overflow:hidden; border-radius:20px; position:relative; box-shadow:0 0 20px rgba(255,105,180,0.3); margin-bottom:30px; }
-.slider-track { display:flex; transition: transform 0.6s ease; }
-.slider-track img { width:100%; flex-shrink:0; object-fit:cover; max-height:500px; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor:pointer; }
-.slider-track img:hover { box-shadow:0 0 30px 10px #ff69b4aa; transform:scale(1.02); }
-.slider-nav { margin-top:15px; text-align:center; }
-.slider-nav button { background:#ff1493; color:white; font-size:1.8rem; border:none; margin:0 10px; border-radius:50%; width:45px; height:45px; cursor:pointer; transition: background 0.3s ease; }
-.slider-nav button:hover { background:#ff69b4; }
-#updatesContainer { display:flex; gap:20px; overflow-x:auto; padding-bottom:10px; scroll-behavior:smooth; }
-.update-card { flex:0 0 300px; background:#fff; border-radius:15px; padding:20px; box-shadow:0 4px 15px rgba(255,182,193,0.4); transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, opacity 0.6s ease; opacity:0; animation:fadeIn 0.8s forwards; cursor:pointer; position:relative; }
-.update-card:hover { transform:translateY(-5px); box-shadow:0 0 30px 6px #ff69b4, 0 0 50px 10px #ff1493aa; filter: drop-shadow(0 0 20px #ff69b4); }
-.update-card.latest-vlog { border:3px solid #ff1493; animation:glow 1s infinite alternate; }
-@keyframes glow { from { box-shadow:0 0 20px #ff1493; } to { box-shadow:0 0 35px #ff69b4; } }
-@keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:translateY(0);} }
-.update-card h3 { margin-top:0; color:#ff1493; font-size:1.4rem; }
-.update-card p { font-size:1rem; line-height:1.5; }
-.update-card img { width:100%; max-height:250px; object-fit:cover; border-radius:10px; margin-top:12px; transition: transform 0.3s ease; }
-.update-card img:hover { transform:scale(1.05); filter:drop-shadow(0 0 12px #ff1493); }
-.update-card.vlog .play-icon { display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:2.5rem; color:white; pointer-events:none; text-shadow:0 0 10px #ff1493; }
-.update-actions { margin-top:10px; display:flex; gap:10px; }
-.update-actions button { background:#ff1493; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer; font-size:0.9rem; }
-.update-actions button:hover { background:#ff69b4; }
-.social-links { margin-top:30px; display:flex; justify-content:center; gap:25px; }
-.social-links a img { width:40px; height:40px; transition: transform 0.3s ease, filter 0.3s ease; }
-.social-links a:hover img { transform:scale(1.2); filter: drop-shadow(0 0 12px #ff1493); }
-#modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:10000; }
-#modal-content { background:#fff; padding:20px; border-radius:15px; max-width:600px; width:90%; max-height:90%; overflow-y:auto; position:relative; }
-#modal-content img, #modal-content video { max-width:100%; margin-top:10px; border-radius:10px; }
-#modal-close { position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; color:#ff1493; }
-#chatbot { position:fixed; bottom:20px; right:20px; width:300px; background:#fff; border-radius:15px; box-shadow:0 0 20px rgba(255,20,147,0.4); display:none; flex-direction:column; overflow:hidden; }
-#chatbot header { background:#ff1493; color:white; padding:10px; font-weight:bold; text-align:center; }
-#chatbot-messages { padding:10px; flex-grow:1; overflow-y:auto; max-height:200px; }
-#chatbot input { border:none; padding:10px; width:100%; border-top:1px solid #ddd; }
-#chat-toggle { position:fixed; bottom:20px; right:20px; background:#ff1493; color:#fff; border:none; border-radius:50%; width:60px; height:60px; font-size:1.8rem; cursor:pointer; box-shadow:0 0 15px rgba(255,20,147,0.5); }
-#adminPanel { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; border-radius:15px; box-shadow:0 0 20px rgba(255,20,147,0.5); z-index:1000; width:350px; }
-#adminPanel input, #adminPanel textarea, #adminPanel select { width:100%; margin-bottom:10px; padding:8px; border:1px solid #ccc; border-radius:5px; }
-#adminPanel button { background:#ff1493; color:#fff; border:none; padding:8px 12px; cursor:pointer; border-radius:5px; width:100%; }
-#adminClose { position:absolute; top:10px; right:10px; cursor:pointer; font-size:1.5rem; color:#ff1493; }
-@media (max-width:600px){
-  header, footer{ flex-direction:column; text-align:center; gap:12px; }
-  nav a{ margin:0 10px; font-size:0.9rem; }
-  section{ margin:30px 15px; }
-  .slider-track img{ max-height:300px; }
-  #updatesContainer{ flex-direction:column; overflow-x:visible; }
-  .update-card{ flex:1 0 auto; width:auto; }
+body, html {
+  margin:0; padding:0; width:100%; height:100%; overflow:hidden;
+  background:#111; font-family:'Share Tech Mono', monospace; color:#ff1493;
+}
+canvas { display:block; position:absolute; top:0; left:0; z-index:0; }
+
+/* Center overlay text */
+#overlay {
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%, -50%);
+  text-align:center; z-index:10;
+  perspective:1000px;
+}
+#overlay h1 {
+  font-size:3.5rem;
+  color:#ff1493;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  animation: rotate3D 5s infinite linear alternate;
+  transform-style:preserve-3d;
+}
+#overlay p {
+  font-size:1.3rem;
+  color:#ff69b4;
+  margin-top:20px;
+  animation: blink 1.5s infinite;
+}
+#starkCredit {
+  position:absolute;
+  bottom:30px;
+  width:100%;
+  text-align:center;
+  font-size:1rem;
+  color:#ff1493;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  z-index:10;
+  opacity:0.8;
+  animation: blink 2s infinite;
+}
+
+/* 3D text animation */
+@keyframes rotate3D {
+  0% { transform:rotateX(0deg) rotateY(0deg); }
+  25% { transform:rotateX(10deg) rotateY(20deg); }
+  50% { transform:rotateX(-10deg) rotateY(-20deg); }
+  75% { transform:rotateX(15deg) rotateY(10deg); }
+  100% { transform:rotateX(0deg) rotateY(0deg); }
+}
+@keyframes blink {
+  0%,50%,100% { opacity:1; }
+  25%,75% { opacity:0.4; }
 }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>FUGLYMAMMIE</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#showcaseSlider">Gallery</a>
-    <a href="#updates">Updates</a>
-    <a href="#social">Socials</a>
-    <a href="#" id="adminBtn">Admin</a>
-  </nav>
-</header>
-
-<section id="about">
-  <p style="max-width:600px; margin:auto; font-size:1.2rem; line-height:1.5;">
-    FUGLYMAMMIE is a powerhouse on stage, turning every performance into a wild, unforgettable experience.
-  </p>
-</section>
-
-<section id="showcaseSlider">
-  <div class="slider-container">
-    <div class="slider-track" id="sliderTrack"></div>
-  </div>
-  <div class="slider-nav">
-    <button id="prevSlide">&#10094;</button>
-    <button id="nextSlide">&#10095;</button>
-  </div>
-</section>
-
-<section id="updates">
-  <h2>Latest Updates</h2>
-  <div id="updatesContainer"></div>
-</section>
-
-<section class="social-links" id="social">
-  <a href="https://instagram.com/fuglymammie" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
-  <a href="https://tiktok.com/@fuglymammie01" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
-  <a href="https://facebook.com/YOUR_USERNAME" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-</section>
-
-<footer style="text-align:center; padding:20px; background:#fff; border-top:1px solid #ddd;">&copy; 2025 FUGLYMAMMIE — All rights reserved</footer>
-
-<!-- Modal -->
-<div id="modal">
-  <div id="modal-content">
-    <span id="modal-close">&#10005;</span>
-    <h3 id="modal-title"></h3>
-    <p id="modal-content-text"></p>
-    <img id="modal-img" src="">
-    <video id="modal-video" controls style="display:none;"></video>
-  </div>
+<canvas id="cyberCanvas"></canvas>
+<div id="overlay">
+  <h1>FuglyMammie WebPage</h1>
+  <p>Under Construction...</p>
 </div>
-
-<!-- Chatbot -->
-<div id="chatbot">
-  <header>Chat with Us</header>
-  <div id="chatbot-messages"></div>
-  <input type="text" id="chatbot-input" placeholder="Type a message..." />
-</div>
-<button id="chat-toggle">💬</button>
-
-<!-- Admin Panel -->
-<div id="adminPanel">
-  <span id="adminClose">&#10005;</span>
-  <h3>Admin Login</h3>
-  <input type="email" id="adminEmail" placeholder="Email">
-  <input type="password" id="adminPassword" placeholder="Password">
-  <button id="loginBtn">Login</button>
-
-  <div id="adminContent" style="display:none;">
-    <h3>Add / Edit Update</h3>
-    <input type="text" id="updateTitle" placeholder="Title">
-    <textarea id="updateContent" placeholder="Content"></textarea>
-    <input type="file" id="updateThumbnail" accept="image/*">
-    <select id="updateType">
-      <option value="blog">Blog</option>
-      <option value="vlog">Vlog</option>
-    </select>
-    <button id="addUpdateBtn">Add Update</button>
-  </div>
-</div>
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage-compat.js"></script>
+<div id="starkCredit">Created from Stark Tower by Kevin</div>
 
 <script>
-// ------------------ Firebase Config ------------------
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const auth = firebase.auth();
-const storage = firebase.storage();
+// Canvas setup
+const canvas = document.getElementById('cyberCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// ------------------ Slider ------------------
-let currentSlide = 0;
-const sliderTrack = document.getElementById('sliderTrack');
-function updateSlider(){ const imgs = sliderTrack.querySelectorAll('.slider-img-container'); if(imgs.length>0) sliderTrack.style.transform=`translateX(-${currentSlide*100}%)`; }
-document.getElementById('prevSlide').onclick=()=>{ currentSlide=(currentSlide-1+sliderTrack.children.length)%sliderTrack.children.length; updateSlider(); }
-document.getElementById('nextSlide').onclick=()=>{ currentSlide=(currentSlide+1)%sliderTrack.children.length; updateSlider(); }
-setInterval(()=>{ if(sliderTrack.children.length>0){ currentSlide=(currentSlide+1)%sliderTrack.children.length; updateSlider(); } },6000);
-
-// ------------------ Updates ------------------
-async function renderUpdates(){
-  const container=document.getElementById('updatesContainer'); container.innerHTML="";
-  const snapshot=await db.collection("updates").orderBy("createdAt","desc").limit(5).get();
-  snapshot.forEach(doc=>{
-    const u=doc.data(); const card=document.createElement('div');
-    card.className="update-card"+(u.type==="vlog"?" vlog":""); if(u.type==="vlog") card.classList.add("latest-vlog");
-    card.innerHTML=`<h3>${u.title}</h3><p>${u.content}</p>${u.thumbnail?`<img src="${u.thumbnail}">`:""}`;
-    card.onclick=()=>openModal(u);
-    container.appendChild(card);
-    // Slider
-    if(u.thumbnail){
-      const sliderDiv=document.createElement('div'); sliderDiv.className='slider-img-container';
-      const img=document.createElement('img'); img.src=u.thumbnail; sliderDiv.appendChild(img); sliderTrack.appendChild(sliderDiv);
+// Polygon particles
+class PolygonParticle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random()-0.5)*2;
+    this.vy = (Math.random()-0.5)*2;
+    this.size = 10 + Math.random()*20;
+    this.sides = 3 + Math.floor(Math.random()*5);
+    this.color = 'rgba(255,20,147,0.6)';
+  }
+  move() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if(this.x<0 || this.x>canvas.width) this.vx*=-1;
+    if(this.y<0 || this.y>canvas.height) this.vy*=-1;
+  }
+  draw() {
+    ctx.beginPath();
+    const angle = (Math.PI*2)/this.sides;
+    for(let i=0;i<this.sides;i++){
+      const px = this.x + this.size*Math.cos(i*angle);
+      const py = this.y + this.size*Math.sin(i*angle);
+      if(i===0) ctx.moveTo(px,py);
+      else ctx.lineTo(px,py);
     }
-  });
-  currentSlide=0; updateSlider();
-}
-
-async function addNewUpdate(){
-  const title=document.getElementById('updateTitle').value.trim();
-  const content=document.getElementById('updateContent').value.trim();
-  const type=document.getElementById('updateType').value;
-  if(!title||!content){ alert("Title and content are required!"); return; }
-  const thumbnailFile=document.getElementById('updateThumbnail').files[0];
-  let thumbnailUrl="";
-  if(thumbnailFile){
-    const fileRef=storage.ref('thumbnails/'+thumbnailFile.name);
-    await fileRef.put(thumbnailFile);
-    thumbnailUrl=await fileRef.getDownloadURL();
+    ctx.closePath();
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
   }
-  await db.collection("updates").add({title,content,type,thumbnail:thumbnailUrl,createdAt:firebase.firestore.FieldValue.serverTimestamp()});
-  renderUpdates();
-  document.getElementById('updateTitle').value=""; document.getElementById('updateContent').value=""; document.getElementById('updateThumbnail').value="";
 }
 
-// ------------------ Modal ------------------
-function openModal(u){ 
-  document.getElementById('modal').style.display="flex";
-  document.getElementById('modal-title').textContent=u.title;
-  document.getElementById('modal-content-text').textContent=u.content;
-  const img=document.getElementById('modal-img'); img.style.display="block"; img.src=u.thumbnail;
-  document.getElementById('modal-video').style.display="none";
-}
-document.getElementById('modal-close').onclick=()=>{ document.getElementById('modal').style.display="none"; };
-
-// ------------------ Admin ------------------
-const adminPanel=document.getElementById('adminPanel');
-document.getElementById('adminBtn').onclick=()=>{ adminPanel.style.display="block"; };
-document.getElementById('adminClose').onclick=()=>{ adminPanel.style.display="none"; document.getElementById('adminContent').style.display="none"; };
-document.getElementById('loginBtn').onclick=async ()=>{
-  const email=document.getElementById('adminEmail').value;
-  const password=document.getElementById('adminPassword').value;
-  try{
-    await auth.signInWithEmailAndPassword(email,password);
-    alert("Admin logged in!");
-    document.getElementById('adminContent').style.display="block";
-  }catch(e){ alert("Login failed: "+e.message); }
-};
-document.getElementById('addUpdateBtn').onclick=addNewUpdate;
-
-// ------------------ Chatbot ------------------
-const chatbot=document.getElementById('chatbot');
-document.getElementById('chat-toggle').onclick=()=>{ chatbot.style.display=(chatbot.style.display==='flex'?'none':'flex'); }
-document.getElementById('chatbot-input').addEventListener('keypress', async e=>{
-  if(e.key==='Enter'){
-    const msg=e.target.value.trim(); if(!msg) return;
-    await db.collection("messages").add({text:msg,createdAt:firebase.firestore.FieldValue.serverTimestamp()});
-    const msgs=document.getElementById('chatbot-messages');
-    msgs.innerHTML+=`<div>You: ${msg}</div><div>FUGLYMAMMIE: Thanks!</div>`; msgs.scrollTop=msgs.scrollHeight;
-    e.target.value="";
+// Binary + math rain
+const symbols = ["0","1","∫","Σ","√","π","∞","+","−","×","÷"];
+class SymbolColumn {
+  constructor(x) {
+    this.x = x;
+    this.y = Math.random()*-1000;
+    this.speed = 2 + Math.random()*4;
+    this.size = 16;
   }
+  draw() {
+    ctx.fillStyle = 'rgba(255,20,147,0.85)';
+    ctx.font = `${this.size}px Share Tech Mono`;
+    const char = symbols[Math.floor(Math.random()*symbols.length)];
+    ctx.fillText(char, this.x, this.y);
+    this.y += this.speed;
+    if(this.y > canvas.height) this.y = Math.random()*-500;
+  }
+}
+
+// Create particles and rain
+const polygons = [];
+for(let i=0;i<80;i++) polygons.push(new PolygonParticle());
+
+const symbolColumns = [];
+for(let i=0;i<Math.floor(canvas.width/15);i++) symbolColumns.push(new SymbolColumn(i*15));
+
+// Animate
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Draw polygons
+  polygons.forEach(p=>{ p.move(); p.draw(); });
+
+  // Draw symbols
+  symbolColumns.forEach(s=>s.draw());
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener('resize', ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
-
-// ------------------ Initial Render ------------------
-renderUpdates();
 </script>
+
 </body>
 </html>
