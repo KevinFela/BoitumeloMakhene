@@ -382,6 +382,91 @@
       transform: perspective(500px) rotateX(5deg);
     }
     
+    /* TikTok Carousel Styles */
+    .tiktok-carousel {
+      position: relative;
+      width: 100%;
+      margin: 20px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .tiktok-container {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+    
+    .tiktok-slide {
+      min-width: 100%;
+      position: relative;
+      padding-bottom: 125%; /* Aspect ratio for TikTok videos */
+      height: 0;
+    }
+    
+    .tiktok-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+    
+    .tiktok-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+    
+    .tiktok-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .tiktok-prev {
+      left: 10px;
+    }
+    
+    .tiktok-next {
+      right: 10px;
+    }
+    
+    .tiktok-dots {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+      gap: 8px;
+    }
+    
+    .tiktok-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tiktok-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+    
     /* GIGS SECTION */
     .gigs-container {
       padding: 80px 20px;
@@ -572,6 +657,10 @@
       .glitch {
         font-size: 2rem;
       }
+      .tiktok-nav {
+        width: 30px;
+        height: 30px;
+      }
     }
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.5rem; }
@@ -581,6 +670,11 @@
       }
       .construction {
         padding: 20px;
+      }
+      .tiktok-nav {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
       }
     }
   </style>
@@ -627,24 +721,38 @@
       <!-- AfterMath -->
       <div class="entry">
         <span class="date">25-07-05</span>
-        <a href="#aftermath-story" class="headline" data-story="aftermath-story">
+        <a href="javascript:void(0);" class="headline" data-story="aftermath-story">
           AfterMath Music Fest
         </a>
         <div id="aftermath-story" class="story">
           <h2>AfterMath Music Fest</h2>
           <p>Before the Ekasi Day Night Market, FUGLYMAMMIE set the stage on fire at the AfterMath Music Fest. The event brought together DJs, MCs, and performers in a high-energy celebration that turned into a night to remember.</p>
-          <div class="media-container">
-            <div class="img-placeholder">
-              <i class="fas fa-image" style="font-size: 3rem; color: #ccc;"></i>
+          
+          <!-- TikTok Carousel -->
+          <div class="tiktok-carousel">
+            <div class="tiktok-container">
+              <div class="tiktok-slide">
+                <iframe class="tiktok-video" src="https://www.tiktok.com/embed/v2/7323793373564980507" allowfullscreen scrolling="no" allow="autoplay; encrypted-media;"></iframe>
+              </div>
+              <div class="tiktok-slide">
+                <iframe class="tiktok-video" src="https://www.tiktok.com/embed/v2/7323793373564980507" allowfullscreen scrolling="no" allow="autoplay; encrypted-media;"></iframe>
+              </div>
+            </div>
+            <button class="tiktok-nav tiktok-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="tiktok-nav tiktok-next"><i class="fas fa-chevron-right"></i></button>
+            <div class="tiktok-dots">
+              <span class="tiktok-dot active" data-index="0"></span>
+              <span class="tiktok-dot" data-index="1"></span>
             </div>
           </div>
+          
         </div>
       </div>
       
       <!-- Ekasi -->
       <div class="entry">
         <span class="date">25-08-31</span>
-        <a href="#ekasi-story" class="headline" data-story="ekasi-story">
+        <a href="javascript:void(0);" class="headline" data-story="ekasi-story">
           Gig at Ekasi Day Night Market by Tebogo Bouks
         </a>
         <div id="ekasi-story" class="story">
@@ -661,7 +769,7 @@
       <!-- PANACHE Collab -->
       <div class="entry">
         <span class="date">25-07-05</span>
-        <a href="#panache-story" class="headline" data-story="panache-story">
+        <a href="javascript:void(0);" class="headline" data-story="panache-story">
           Collab with P A N A C H E Brand
         </a>
         <div id="panache-story" class="story">
@@ -711,12 +819,13 @@
       document.querySelector('.nav-links').classList.toggle('active');
     });
     
-    // Timeline story toggles
+    // Timeline story toggles - FIXED VERSION
     document.querySelectorAll('.headline').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         const storyId = link.getAttribute('data-story');
         const story = document.getElementById(storyId);
+        const wasClosed = story.style.display !== 'block';
         
         // Close all other open stories
         document.querySelectorAll('.story').forEach(s => {
@@ -726,10 +835,20 @@
         });
         
         // Toggle current story
-        story.style.display = (story.style.display === 'block') ? 'none' : 'block';
+        story.style.display = wasClosed ? 'block' : 'none';
         
-        if(story.style.display === 'block') {
-          story.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        // Only scroll if opening the story and it's not fully in view
+        if (wasClosed) {
+          const storyRect = story.getBoundingClientRect();
+          const isVisible = (
+            storyRect.top >= 0 &&
+            storyRect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+          );
+          
+          if (!isVisible) {
+            // Scroll to the headline, not the story, to maintain context
+            link.scrollIntoView({behavior: 'smooth', block: 'center'});
+          }
         }
       });
     });
@@ -771,6 +890,92 @@
         nav.style.padding = '15px 0';
       }
     });
+    
+    // TikTok Carousel Functionality
+    const initTikTokCarousel = () => {
+      const carousel = document.querySelector('.tiktok-carousel');
+      if (!carousel) return;
+      
+      const container = carousel.querySelector('.tiktok-container');
+      const slides = carousel.querySelectorAll('.tiktok-slide');
+      const prevBtn = carousel.querySelector('.tiktok-prev');
+      const nextBtn = carousel.querySelector('.tiktok-next');
+      const dots = carousel.querySelectorAll('.tiktok-dot');
+      
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+      
+      // Function to update carousel position
+      const updateCarousel = () => {
+        container.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      };
+      
+      // Next slide
+      const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      };
+      
+      // Previous slide
+      const prevSlide = () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      };
+      
+      // Add event listeners
+      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', nextSlide);
+      
+      // Dot navigation
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = parseInt(dot.getAttribute('data-index'));
+          updateCarousel();
+        });
+      });
+      
+      // Auto-play (optional)
+      let autoplayInterval = setInterval(nextSlide, 5000);
+      
+      // Pause autoplay on hover
+      carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+      });
+      
+      carousel.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(nextSlide, 5000);
+      });
+      
+      // Swipe functionality for touch devices
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      carousel.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+      
+      carousel.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, false);
+      
+      const handleSwipe = () => {
+        if (touchEndX < touchStartX - 50) {
+          nextSlide(); // Swipe left
+        }
+        if (touchEndX > touchStartX + 50) {
+          prevSlide(); // Swipe right
+        }
+      };
+    };
+    
+    // Initialize TikTok carousel when page loads
+    document.addEventListener('DOMContentLoaded', initTikTokCarousel);
     
     // Particle effect on click
     const canvas = document.getElementById('particle-canvas');
