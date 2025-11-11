@@ -562,6 +562,105 @@
             color: rgba(255,255,255,0.7);
         }
 
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: var(--cream);
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .modal-details {
+            padding: 0 10px;
+        }
+
+        .modal-details h3 {
+            color: var(--chocolate);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .modal-date {
+            color: var(--taupe);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-date i {
+            margin-right: 8px;
+        }
+
+        .modal-description {
+            line-height: 1.6;
+            color: var(--charcoal);
+        }
+
+        .modal-photographer {
+            color: var(--taupe);
+            font-style: italic;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--chocolate);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--taupe);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-container, .booking-container, .contact-container {
@@ -571,6 +670,11 @@
             .about-img {
                 max-width: 400px;
                 margin: 0 auto;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
             }
         }
 
@@ -614,6 +718,15 @@
             .gigs-container, .gallery-container {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
+
+            .modal-content {
+                padding: 15px;
+                margin: 5% auto;
+            }
+
+            .modal-image {
+                max-height: 400px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -631,6 +744,16 @@
             
             .gigs-container, .gallery-container {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .modal-content {
+                width: 98%;
+                margin: 2% auto;
+                padding: 10px;
+            }
+
+            .modal-image {
+                max-height: 300px;
             }
         }
     </style>
@@ -670,7 +793,7 @@
             <h1>Fugly<span class="stage-name">Mammie</span></h1>
             <p>Bringing vibrant energy and professional hosting to every event. From club nights to corporate functions, I create unforgettable experiences that keep people talking.</p>
             <a href="#booking" class="btn">Book Your Event</a>
-            <a href="https://wa.me/27677372605?text=Hi%20FuglyMammie,%20I'd%20like%20to%20book%20your%20services" class="btn btn-whatsapp" target="_blank">
+            <a href="https://wa.me/27676362605?text=Hi%20FuglyMammie,%20I'd%20like%20to%20book%20your%20services" class="btn btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> Chat on WhatsApp
             </a>
         </div>
@@ -698,7 +821,7 @@
                             </div>
                             <div>
                                 <h4>Professional MC Services</h4>
-                                <p>I'll keep your event running smoothly while keeping your guests entertained</p>
+                                <p>Hosting events and club nights with energy and professionalism</p>
                             </div>
                         </div>
                         <div class="highlight-item">
@@ -715,8 +838,8 @@
                                 <i class="fas fa-store"></i>
                             </div>
                             <div>
-                                <h4>Entrepreneur</h4>
-                                <p>Beyond hosting, I offer weave installations and custom umbrella sales</p>
+                                <h4>Aspiring Entrepreneur</h4>
+                                <p>Building my brand and exploring business opportunities</p>
                             </div>
                         </div>
                     </div>
@@ -737,21 +860,21 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                     <h3>MC Services</h3>
-                    <p>Whether it's your wedding day, corporate function, or special celebration, I'll be the voice that guides your event from start to finish. I keep things moving, engage your guests, and make sure everyone has an amazing time.</p>
+                    <p>Professional Master of Ceremonies for events and club nights. I keep things moving, engage your guests, and make sure everyone has an amazing time with high-energy hosting.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
                     <h3>Club Hosting</h3>
-                    <p>I bring that infectious energy that turns a regular night out into an unforgettable experience. Reading the crowd comes naturally to me, and I know exactly how to keep the vibe strong from the first guest to the last.</p>
+                    <p>I bring that infectious energy that turns a regular night out into an unforgettable experience. Reading the crowd comes naturally to me, and I know exactly how to keep the vibe strong.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-store"></i>
                     </div>
-                    <h3>Business Ventures</h3>
-                    <p>When I'm not on stage, I'm running my other passion projects. I offer professional weave installations using quality hair, and I've got some seriously stylish umbrellas available too - perfect for events or everyday use.</p>
+                    <h3>Future Ventures</h3>
+                    <p>As an aspiring businesswoman, I'm constantly exploring new opportunities and building my brand beyond entertainment. Watch this space for exciting developments!</p>
                 </div>
             </div>
         </div>
@@ -764,34 +887,34 @@
                 <h2>Recent Gigs</h2>
             </div>
             <div class="gigs-container">
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig1.jpg" data-title="Wake Up The Bloc" data-date="October 5, 2025" data-description="S/o to Michael Phadi(Tempy) for the booking">
                     <img src="gig1.jpg" alt="Club hosting performance" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig2.jpg" data-title="Ekasi Day/Night Market" data-date="August 31, 2025" data-description="">
                     <img src="gig2.jpg" alt="Corporate event hosting" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig3.jpg" data-title="Fefdawd and Friends" data-date="August 2, 2025" data-description="">
                     <img src="gig3.jpg" alt="Wedding ceremony MC" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig4.jpg" data-title="The Aftermath Music Fest" data-date="July 5, 2025" data-description="">
                     <img src="gig4.jpg" alt="Private party entertainment" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig5.jpg" data-title="Singles And Situations Party" data-date="February 14, 2025" data-description="">
                     <img src="gig5.jpg" alt="Product launch event" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig6.jpg" data-title="Gravity Lifestyle New Year" data-date="December 31, 2024" data-description="">
                     <img src="gig6.jpg" alt="Festival hosting" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig7.jpg" data-title="Made In Mogale Festival" data-date="December 16, 2024" data-description="">
                     <img src="gig7.jpg" alt="Award ceremony" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig8.jpg" data-title="Team Noreng" data-date="December 7, 2024" data-description="">
                     <img src="gig8.jpg" alt="Charity event" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig9.jpg" data-title="Gravity" data-date="October 19, 2024" data-description="">
                     <img src="gig9.jpg" alt="Corporate gala" class="gig-img">
                 </div>
-                <div class="gig-item">
+                <div class="gig-item" data-image="gig10.jpg" data-title="Vader Fridays" data-date="June 28, 2024" data-description="">
                     <img src="gig10.jpg" alt="Nightclub performance" class="gig-img">
                 </div>
             </div>
@@ -865,9 +988,6 @@
                                 <option value="">Select Service</option>
                                 <option value="mc">MC Services</option>
                                 <option value="club">Club Hosting</option>
-                                <option value="weave">Weave Installation</option>
-                                <option value="umbrella">Umbrella Purchase</option>
-                                <option value="collab">Collaboration</option>
                                 <option value="other">Something Else</option>
                             </select>
                         </div>
@@ -893,34 +1013,34 @@
                 <h2>Gallery</h2>
             </div>
             <div class="gallery-container">
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image1.jpg" data-title="Professional Headshot" data-photographer="Visualmafia.jpeg">
                     <img src="image1.jpg" alt="Professional headshot" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image2.jpg" data-title="Event Preparation" data-photographer="Visualmafia.jpeg">
                     <img src="image2.jpg" alt="Event preparation" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image3.jpg" data-title="On Stage Performance" data-photographer="Visualmafia.jpeg">
                     <img src="image3.jpg" alt="On stage performance" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image4.jpg" data-title="Crowd Engagement" data-photographer="Visualmafia.jpeg">
                     <img src="image4.jpg" alt="Crowd engagement" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image5.jpg" data-title="Backstage Moments" data-photographer="Visualmafia.jpeg">
                     <img src="image5.jpg" alt="Backstage moments" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image6.jpg" data-title="Professional Setup" data-photographer="Visualmafia.jpeg">
                     <img src="image6.jpg" alt="Professional setup" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image7.jpg" data-title="Event Coordination" data-photographer="Visualmafia.jpeg">
                     <img src="image7.jpg" alt="Event coordination" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image8.jpg" data-title="Client Interaction" data-photographer="Visualmafia.jpeg">
                     <img src="image8.jpg" alt="Client interaction" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image9.jpg" data-title="Performance Highlights" data-photographer="Visualmafia.jpeg">
                     <img src="image9.jpg" alt="Performance highlights" class="gallery-img">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="image10.jpg" data-title="Professional Portfolio" data-photographer="Visualmafia.jpeg">
                     <img src="image10.jpg" alt="Professional portfolio" class="gallery-img">
                 </div>
             </div>
@@ -944,8 +1064,8 @@
                         </div>
                         <div class="contact-details">
                             <h4>WhatsApp</h4>
-                            <p>+27 67 737 2605</p>
-                            <a href="https://wa.me/27677372605?text=Hi%20FuglyMammie,%20I'd%20like%20to%20inquire%20about%20your%20services" class="btn btn-whatsapp" target="_blank">
+                            <p>+27 67 636 2605</p>
+                            <a href="https://wa.me/27676362605?text=Hi%20FuglyMammie,%20I'd%20like%20to%20inquire%20about%20your%20services" class="btn btn-whatsapp" target="_blank">
                                 <i class="fab fa-whatsapp"></i> Message Me
                             </a>
                         </div>
@@ -967,7 +1087,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Call</h4>
-                            <p>+27 67 737 2605</p>
+                            <p>+27 67 636 2605</p>
                         </div>
                     </div>
                     
@@ -1006,9 +1126,6 @@
                             <select id="inquiry-type" class="form-control" required>
                                 <option value="">Select Inquiry Type</option>
                                 <option value="booking">Event Booking</option>
-                                <option value="weave">Weave Installation</option>
-                                <option value="umbrella">Umbrella Purchase</option>
-                                <option value="collab">Collaboration</option>
                                 <option value="other">Just Saying Hi</option>
                             </select>
                         </div>
@@ -1028,7 +1145,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Fugly<span>Mammie</span></div>
-                <p>Professional MC, Club Host & Entrepreneur</p>
+                <p>Professional MC & Club Host</p>
                 <p>Boitumelo Makhene</p>
                 <div class="social-links">
                     <a href="#" class="social-link">
@@ -1053,6 +1170,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-details">
+                <h3 id="modalTitle"></h3>
+                <div id="modalDate" class="modal-date"></div>
+                <p id="modalDescription" class="modal-description"></p>
+                <div id="modalPhotographer" class="modal-photographer"></div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile menu functionality
@@ -1112,6 +1243,78 @@
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('nav') && window.innerWidth <= 768) {
                     navUl.classList.remove('active');
+                }
+            });
+
+            // Image Modal functionality
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDate = document.getElementById('modalDate');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalPhotographer = document.getElementById('modalPhotographer');
+            const closeModal = document.querySelector('.close-modal');
+
+            // Add click event to all gig and gallery items
+            document.querySelectorAll('.gig-item, .gallery-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const imageSrc = this.getAttribute('data-image');
+                    const title = this.getAttribute('data-title');
+                    const date = this.getAttribute('data-date');
+                    const description = this.getAttribute('data-description');
+                    const photographer = this.getAttribute('data-photographer');
+                    
+                    modalImage.src = imageSrc;
+                    modalTitle.textContent = title;
+                    
+                    // Handle date display
+                    if (date) {
+                        modalDate.innerHTML = `<i class="fas fa-calendar-alt"></i><span>${date}</span>`;
+                        modalDate.style.display = 'flex';
+                    } else {
+                        modalDate.style.display = 'none';
+                    }
+                    
+                    // Handle description display
+                    if (description) {
+                        modalDescription.textContent = description;
+                        modalDescription.style.display = 'block';
+                    } else {
+                        modalDescription.style.display = 'none';
+                    }
+                    
+                    // Handle photographer credit
+                    if (photographer) {
+                        modalPhotographer.textContent = `Photo by: ${photographer}`;
+                        modalPhotographer.style.display = 'block';
+                    } else {
+                        modalPhotographer.style.display = 'none';
+                    }
+                    
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+
+            // Close modal when clicking the X
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+
+            // Close modal when clicking outside the content
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
                 }
             });
         });
