@@ -3,162 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boitumelo | FuglyMammie</title>
+    <title>Eatery at Flamingo | Bar Lounge & Car Wash</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Add this line for the favicon/logo in browser tab -->
-    <link rel="icon" type="image/jpeg" href="WhatsApp Image 2025-11-11 at 04.16.17_1446f026.jpg">
     <style>
-        /* Your existing CSS styles remain the same */
-        /* Color Variables */
         :root {
-            --beige: #F5F1E8;
-            --chocolate: #3C2A21;
-            --taupe: #A78B71;
-            --charcoal: #2A1F17;
-            --cream: #FDF6E3;
-            --gold: #D4AF37;
-            --hero-brown: #5D4037;
+            --primary-dark: #0a0a0a;
+            --secondary-dark: #1a1a1a;
+            --accent-red: #d10000;
+            --accent-red-dark: #a00000;
+            --accent-red-light: #ff3333;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #777777;
+            --border-color: #333333;
+            --transition: all 0.3s ease;
         }
 
-
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Lora', serif;
-            background-color: var(--beige);
-            color: var(--charcoal);
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 1px;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        h2:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--taupe);
-            bottom: 0;
-            left: 0;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--taupe);
-            color: var(--cream);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Lora', serif;
-        }
-
-        .btn:hover {
-            background-color: var(--chocolate);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-        }
-
-        /* Header & Navigation */
+        /* Header Styles */
         header {
-            background-color: var(--beige);
-            padding: 15px 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
             position: fixed;
             width: 100%;
-            top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .logo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            padding: 15px 0;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--chocolate);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 12px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-size: 24px;
             font-weight: 700;
+            color: var(--text-primary);
             letter-spacing: 1px;
         }
 
-        .logo span {
-            color: var(--taupe);
+        .logo-text span {
+            color: var(--accent-red);
+            font-weight: 300;
         }
 
         nav ul {
@@ -166,979 +86,1772 @@
             list-style: none;
         }
 
-        nav li {
+        nav ul li {
             margin-left: 30px;
         }
 
-        nav a {
-            font-size: 1.1rem;
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition);
             position: relative;
+            font-size: 16px;
         }
 
-        nav a:after {
+        nav ul li a:hover {
+            color: var(--accent-red);
+        }
+
+        nav ul li a::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--taupe);
-            transition: width 0.3s ease;
+            background-color: var(--accent-red);
+            transition: var(--transition);
         }
 
-        nav a:hover:after {
+        nav ul li a:hover::after {
             width: 100%;
         }
 
         .mobile-menu {
             display: none;
-            font-size: 1.5rem;
+            font-size: 24px;
             cursor: pointer;
+            color: var(--text-primary);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(60, 42, 33, 0.7), rgba(60, 42, 33, 0.7)), 
-                        url('hero.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('header.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--cream);
-            padding: 0 20px;
-            margin-top: 90px;
-            position: relative;
+            padding: 120px 0 60px;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 40px;
         }
 
         .hero-content {
-            max-width: 800px;
-            z-index: 1;
+            flex: 1;
+            max-width: 600px;
         }
 
         .hero h1 {
             font-size: 4rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--accent-red);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
-        .stage-name {
-            color: var(--hero-brown);
-            font-weight: bold;
-        }
-
-        /* Page Sections */
-        .page {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
+        /* Toggle Button for Booking Form */
+        .booking-toggle {
             display: inline-block;
-        }
-
-        .section-title h2:after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* About Section */
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-content h3 {
-            color: var(--chocolate);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-highlights {
-            margin-top: 30px;
-        }
-
-        .highlight-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .highlight-icon {
-            background-color: var(--taupe);
-            color: var(--cream);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--cream);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            padding: 14px 35px;
+            background-color: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
             text-align: center;
-            padding: 30px;
+            margin-top: 20px;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
+        .booking-toggle:hover {
+            background-color: var(--accent-red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(209, 0, 0, 0.3);
         }
 
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--taupe);
-            margin-bottom: 20px;
+        .booking-toggle i {
+            margin-left: 8px;
+            transition: var(--transition);
         }
 
-        .service-card h3 {
-            color: var(--chocolate);
-            margin-bottom: 15px;
+        .booking-toggle.active i {
+            transform: rotate(180deg);
         }
 
-        /* Gigs Section */
-        .gigs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .gig-item {
-            height: 250px;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gig-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gig-item:hover .gig-img {
-            transform: scale(1.1);
-        }
-
-        .gig-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Gallery Section */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .gallery-item {
-            height: 250px;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Booking Section */
-        .booking-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .booking-info {
-            background-color: var(--cream);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .booking-info h3 {
-            color: var(--chocolate);
-            margin-bottom: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            margin-bottom: 15px;
-        }
-
-        .info-icon {
-            color: var(--taupe);
-            margin-right: 15px;
-            flex-shrink: 0;
-            width: 20px;
-        }
-
+        /* Compact Booking Form */
         .booking-form {
-            background-color: var(--cream);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            flex: 1;
+            max-width: 450px;
+            background-color: var(--secondary-dark);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .booking-form.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .booking-form h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            text-align: center;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            transition: border 0.3s ease;
+            padding: 10px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-size: 14px;
+            transition: var(--transition);
         }
 
         .form-control:focus {
-            border-color: var(--taupe);
             outline: none;
+            border-color: var(--accent-red);
+            box-shadow: 0 0 0 2px rgba(209, 0, 0, 0.2);
         }
 
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info {
-            background-color: var(--cream);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .contact-item {
+        .form-row {
             display: flex;
-            margin-bottom: 25px;
+            gap: 12px;
         }
 
-        .contact-icon {
-            background-color: var(--taupe);
-            color: var(--cream);
-            width: 50px;
-            height: 50px;
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(209, 0, 0, 0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            margin-top: 8px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--secondary-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--accent-red);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--primary-dark);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-red);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            font-size: 1.2rem;
+            font-size: 30px;
+            color: white;
+            transition: var(--transition);
         }
 
-        .contact-details h4 {
-            margin-bottom: 5px;
-            color: var(--chocolate);
+        .feature-card:hover .feature-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .content-media {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .content-media:hover img {
+            transform: scale(1.05);
+        }
+
+        .content-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .content-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .content-text h2 span {
+            color: var(--accent-red);
+        }
+
+        .content-text p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Square Gallery Grid for Food & Alcohol */
+        .square-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .square-gallery-item {
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+
+        .square-gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .square-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .square-gallery-item:hover img {
+            transform: scale(1.12);
+        }
+
+        .square-gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(209, 0, 0, 0.4));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .square-gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 100px 0;
+            background-color: var(--secondary-dark);
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .menu-tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .menu-tab-btn.active {
+            color: var(--accent-red);
+        }
+
+        .menu-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-red);
+        }
+
+        .menu-tab-content {
+            display: none;
+        }
+
+        .menu-tab-content.active {
+            display: block;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-category {
+            margin-bottom: 50px;
+        }
+
+        .menu-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-red);
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 10px;
+        }
+
+        .menu-item {
+            background-color: var(--primary-dark);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-5px);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .menu-item-price {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .menu-item-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 100px 0;
+            background-color: var(--secondary-dark);
+        }
+
+        .events-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-red);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-red);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background-color: var(--primary-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-red);
+        }
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-date {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .event-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .posters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .poster-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .poster-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-red);
+        }
+
+        .poster-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Gallery Section - ENHANCED */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: var(--secondary-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.12);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(209, 0, 0, 0.4));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-red);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-red);
+            padding-left: 5px;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--taupe);
-            color: var(--cream);
+        .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-dark);
+            border-radius: 50%;
+            color: var(--text-primary);
+            transition: var(--transition);
         }
 
-        .social-link:hover {
-            background-color: var(--chocolate);
-            transform: translateY(-3px);
+        .social-links a:hover {
+            background-color: var(--accent-red);
+            transform: translateY(-5px);
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--chocolate);
-            color: var(--cream);
-            padding: 50px 0 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo span {
-            color: var(--taupe);
+        .social-links a.whatsapp:hover {
+            background-color: #25D366;
         }
 
         .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
             font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
         }
 
-        /* Image Modal */
-        .modal {
+        /* Page Sections */
+        .page-section {
             display: none;
+            min-height: 100vh;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Car Wash Section Enhancements */
+        .car-wash-services {
+            margin-top: 50px;
+        }
+
+        .service-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-package {
+            background-color: var(--primary-dark);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .service-package:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-red);
+        }
+
+        .service-package h3 {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .service-package .price {
+            font-size: 2rem;
+            color: var(--accent-red);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .service-package ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .service-package ul li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-package ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* Enhanced Media Grid for Car Wash */
+        .car-wash-media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Instagram Style Image Viewer */
+        .image-viewer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            overflow: auto;
-            animation: fadeIn 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .modal-content {
-            position: relative;
-            background-color: var(--cream);
-            margin: 5% auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-            animation: slideUp 0.4s ease;
-        }
-
-        .modal-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: contain;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .modal-details {
-            padding: 0 10px;
-        }
-
-        .modal-details h3 {
-            color: var(--chocolate);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .modal-date {
-            color: var(--taupe);
-            font-weight: bold;
-            margin-bottom: 15px;
+        .image-viewer.active {
             display: flex;
+            opacity: 1;
+        }
+
+        .image-viewer-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
 
-        .modal-date i {
-            margin-right: 8px;
+        .image-viewer-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
         }
 
-        .modal-description {
-            line-height: 1.6;
-            color: var(--charcoal);
-        }
-
-        .modal-photographer {
-            color: var(--taupe);
-            font-style: italic;
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
-
-        .close-modal {
+        .image-viewer-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            color: var(--chocolate);
-            font-size: 2rem;
-            font-weight: bold;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
             cursor: pointer;
-            transition: color 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: var(--transition);
         }
 
-        .close-modal:hover {
-            color: var(--taupe);
+        .image-viewer-close:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .image-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes slideUp {
-            from { 
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .image-viewer-nav:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-container, .booking-container, .contact-container {
-                grid-template-columns: 1fr;
+        .image-viewer-prev {
+            left: 20px;
+        }
+
+        .image-viewer-next {
+            right: 20px;
+        }
+
+        .image-viewer-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 968px) {
+            .hero-container {
+                flex-direction: column;
             }
             
-            .about-img {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
+            .hero-content, .booking-form {
+                max-width: 100%;
             }
             
             .hero h1 {
                 font-size: 3rem;
             }
-            
-            nav ul {
+        }
+
+        @media (max-width: 768px) {
+            nav {
                 display: none;
                 position: absolute;
-                top: 90px;
+                top: 100%;
                 left: 0;
-                right: 0;
-                background-color: var(--beige);
-                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-dark);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-            
-            nav ul.active {
-                display: flex;
+
+            nav.active {
+                display: block;
             }
-            
-            nav li {
-                margin: 10px 0;
+
+            nav ul {
+                flex-direction: column;
             }
-            
+
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+
             .mobile-menu {
                 display: block;
             }
+
+            .hero {
+                padding: 100px 0 40px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            .hero p {
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .events-tabs, .menu-tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab-btn, .menu-tab-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
             
-            .gigs-container, .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
 
-            .modal-content {
-                padding: 15px;
-                margin: 5% auto;
+            /* FIXED GALLERY GRIDS FOR MOBILE */
+            .square-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .square-gallery-item {
+                height: 0;
+                padding-bottom: 100%; /* Creates square aspect ratio */
+                position: relative;
+            }
+            
+            .square-gallery-item img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .gallery-item {
+                height: 0;
+                padding-bottom: 100%; /* Creates square aspect ratio */
+                position: relative;
+            }
+            
+            .gallery-item img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
 
-            .modal-image {
-                max-height: 400px;
+            .car-wash-media-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            /* Fix for booking form spacing on mobile */
+            .booking-form {
+                margin-top: 30px;
+            }
+
+            /* Mobile-specific image viewer styles */
+            .image-viewer-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+
+            .image-viewer-prev {
+                left: 10px;
+            }
+
+            .image-viewer-next {
+                right: 10px;
             }
         }
 
-        @media (max-width: 576px) {
+        @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .booking-form {
+                padding: 20px;
             }
             
-            .gigs-container, .gallery-container {
-                grid-template-columns: 1fr 1fr;
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            /* FIXED GALLERY GRIDS FOR SMALL MOBILE */
+            .square-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
 
-            .modal-content {
-                width: 98%;
-                margin: 2% auto;
-                padding: 10px;
-            }
-
-            .modal-image {
-                max-height: 300px;
+            /* Smaller navigation buttons for very small screens */
+            .image-viewer-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Instagram Style Image Viewer -->
+    <div class="image-viewer" id="imageViewer">
+        <div class="image-viewer-content">
+            <img id="viewerImage" src="" alt="">
+            <button class="image-viewer-close" id="closeViewer">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="image-viewer-nav image-viewer-prev" id="prevImage">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="image-viewer-nav image-viewer-next" id="nextImage">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-viewer-counter" id="imageCounter"></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo-container">
-                <div class="logo-img">
-                    <!-- Add your logo image here -->
-                    <img src="WhatsApp Image 2025-11-11 at 04.16.17_1446f026.jpg" alt="FuglyMammie Logo">
-                </div>
-                <div class="logo">Fugly<span>Mammie</span></div>
+            <div class="logo">
+                <img src="386061321_274110248928727_5332394108685455963_n.jpg" alt="Eatery at Flamingo Logo" class="logo-image">
+                <div class="logo-text">EATERY <span>AT FLAMINGO</span></div>
             </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
+            <nav id="mainNav">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gigs">Gigs</a></li>
-                    <li><a href="#booking">Booking</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="menu">Menu</a></li>
+                    <li><a href="#" class="nav-link" data-page="car-wash">Car Wash</a></li>
+                    <li><a href="#" class="nav-link" data-page="events">Events</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Fugly<span class="stage-name">Mammie</span></h1>
-            <p>Bringing vibrant energy and professional hosting to every event. From club nights to corporate functions, I create unforgettable experiences that keep people talking.</p>
-            <a href="#booking" class="btn">Book Your Event</a>
-            <a href="https://wa.me/27676362605?text=Hi%20FuglyMammie,%20I'd%20like%20to%20book%20your%20services" class="btn btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="page">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-container">
-                <div class="about-img">
-                    <img src="about me.jpg" alt="FuglyMammie">
-                </div>
-                <div class="about-content">
-                    <h3>Boitumelo Makhene</h3>
-                    <p>Hey there! I'm Boitumelo, but you probably know me as FuglyMammie. I've been lighting up events across West Rand and beyond for years now, bringing that special energy that turns good events into unforgettable ones.</p>
-                    <p>What started as a passion for connecting with people has grown into a career path i have loved. I love reading crowds and knowing exactly what they need - whether that's hyping up a club night or keeping a corporate event flowing smoothly.</p>
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>EATERY <span>AT FLAMINGO</span></h1>
+                    <p>Experience the perfect blend of casual dining, premium bar lounge, and luxury car care. Enjoy great food, signature cocktails, and vibrant atmosphere while we pamper your vehicle.</p>
                     
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <i class="fas fa-microphone"></i>
-                            </div>
-                            <div>
-                                <h4>Professional MC Services</h4>
-                                <p>Hosting events and club nights with energy and professionalism</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <i class="fas fa-music"></i>
-                            </div>
-                            <div>
-                                <h4>Club Host Extraordinaire</h4>
-                                <p>Creating those electric atmospheres that keep people coming back</p>
-                            </div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">
-                                <i class="fas fa-store"></i>
-                            </div>
-                            <div>
-                                <h4>Aspiring Entrepreneur</h4>
-                                <p>Building my brand and exploring business opportunities</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Book Table Toggle Button -->
+                    <button class="booking-toggle" id="bookingToggle">
+                        BOOK TABLE <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="page" style="background-color: var(--cream);">
-        <div class="container">
-            <div class="section-title">
-                <h2>What I Offer</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <h3>MC Services</h3>
-                    <p>Professional Master of Ceremonies for events and club nights. I keep things moving, engage your guests, and make sure everyone has an amazing time with high-energy hosting.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-glass-cheers"></i>
-                    </div>
-                    <h3>Club Hosting</h3>
-                    <p>I bring that infectious energy that turns a regular night out into an unforgettable experience. Reading the crowd comes naturally to me, and I know exactly how to keep the vibe strong.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3>Future Ventures</h3>
-                    <p>As an aspiring businesswoman, I'm constantly exploring new opportunities and building my brand beyond entertainment. Watch this space for exciting developments!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gigs Section -->
-    <section id="gigs" class="page">
-        <div class="container">
-            <div class="section-title">
-                <h2>Recent Gigs</h2>
-            </div>
-            <div class="gigs-container">
-                <div class="gig-item" data-image="gig1.jpg" data-title="Wake Up The Bloc" data-date="October 5, 2025" data-description="S/o to Michael Phadi(Tempy) for the booking">
-                    <img src="gig1.jpg" alt="Club hosting performance" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig2.jpg" data-title="Ekasi Day/Night Market" data-date="August 31, 2025" data-description="">
-                    <img src="gig2.jpg" alt="Corporate event hosting" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig3.jpg" data-title="Fefdawd and Friends" data-date="August 2, 2025" data-description="">
-                    <img src="gig3.jpg" alt="Wedding ceremony MC" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig4.jpg" data-title="The Aftermath Music Fest" data-date="July 5, 2025" data-description="">
-                    <img src="gig4.jpg" alt="Private party entertainment" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig5.jpg" data-title="Singles And Situations Party" data-date="February 14, 2025" data-description="">
-                    <img src="gig5.jpg" alt="Product launch event" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig6.jpg" data-title="Gravity Lifestyle New Year" data-date="December 31, 2024" data-description="">
-                    <img src="gig6.jpg" alt="Festival hosting" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig7.jpg" data-title="Made In Mogale Festival" data-date="December 16, 2024" data-description="">
-                    <img src="gig7.jpg" alt="Award ceremony" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig8.jpg" data-title="Team Noreng" data-date="December 7, 2024" data-description="">
-                    <img src="gig8.jpg" alt="Charity event" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig9.jpg" data-title="Gravity" data-date="October 19, 2024" data-description="">
-                    <img src="gig9.jpg" alt="Corporate gala" class="gig-img">
-                </div>
-                <div class="gig-item" data-image="gig10.jpg" data-title="Vader Fridays" data-date="June 28, 2024" data-description="">
-                    <img src="gig10.jpg" alt="Nightclub performance" class="gig-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="page" style="background-color: var(--cream);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Let's Work Together</h2>
-            </div>
-            <div class="booking-container">
-                <div class="booking-info">
-                    <h3>How It Works</h3>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div>
-                            <h4>Availability</h4>
-                            <p>My calendar fills up quickly, especially for weekend events. The sooner you reach out, the better chance we have of making your date work.</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <div>
-                            <h4>Pricing</h4>
-                            <p>Every event is unique, so I create custom quotes based on your specific needs, duration, and requirements.</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Based in KAGISO but available nationwide.</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4>Response Time</h4>
-                            <p>I try to get back to all inquiries within 24 hours - I know how important timely communication is when planning events.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="booking-form">
-                    <h3>Send Me Your Event Details</h3>
-                    <form id="bookingForm">
+                
+                <!-- Booking Form (Hidden by default) -->
+                <div class="booking-form" id="bookingForm">
+                    <h2>RESERVE YOUR TABLE</h2>
+                    <form id="bookingFormElement">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <select id="time" class="form-control" required>
+                                    <option value="">Select Time</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="21:30">9:30 PM</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="service-type">What Do You Need?</label>
-                            <select id="service-type" class="form-control" required>
-                                <option value="">Select Service</option>
-                                <option value="mc">MC Services</option>
-                                <option value="club">Club Hosting</option>
-                                <option value="other">Something Else</option>
+                            <label for="guests">Number of Guests</label>
+                            <select id="guests" class="form-control" required>
+                                <option value="">Select Guests</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6">6 People</option>
+                                <option value="7">7+ People</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="event-date">When's Your Event?</label>
-                            <input type="date" id="event-date" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Tell Me About Your Event</label>
-                            <textarea id="message" class="form-control" placeholder="What's the vibe? How many guests? Any special requirements?"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send My Details</button>
+                        <button type="submit" class="btn">BOOK TABLE</button>
+                        <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I%20would%20like%20to%20make%20a%20reservation" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Contact via WhatsApp
+                        </a>
                     </form>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="page">
-        <div class="container">
-            <div class="section-title">
-                <h2>Gallery</h2>
-            </div>
-            <div class="gallery-container">
-                <div class="gallery-item" data-image="image1.jpg" data-title="Professional Headshot" data-photographer="Visualmafia.jpeg">
-                    <img src="image1.jpg" alt="Professional headshot" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image2.jpg" data-title="Event Preparation" data-photographer="Visualmafia.jpeg">
-                    <img src="image2.jpg" alt="Event preparation" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image3.jpg" data-title="On Stage Performance" data-photographer="Visualmafia.jpeg">
-                    <img src="image3.jpg" alt="On stage performance" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image4.jpg" data-title="Crowd Engagement" data-photographer="Visualmafia.jpeg">
-                    <img src="image4.jpg" alt="Crowd engagement" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image5.jpg" data-title="Backstage Moments" data-photographer="Visualmafia.jpeg">
-                    <img src="image5.jpg" alt="Backstage moments" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image6.jpg" data-title="Professional Setup" data-photographer="Visualmafia.jpeg">
-                    <img src="image6.jpg" alt="Professional setup" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image7.jpg" data-title="Event Coordination" data-photographer="Visualmafia.jpeg">
-                    <img src="image7.jpg" alt="Event coordination" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image8.jpg" data-title="Client Interaction" data-photographer="Visualmafia.jpeg">
-                    <img src="image8.jpg" alt="Client interaction" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image9.jpg" data-title="Performance Highlights" data-photographer="Visualmafia.jpeg">
-                    <img src="image9.jpg" alt="Performance highlights" class="gallery-img">
-                </div>
-                <div class="gallery-item" data-image="image10.jpg" data-title="Professional Portfolio" data-photographer="Visualmafia.jpeg">
-                    <img src="image10.jpg" alt="Professional portfolio" class="gallery-img">
+        <!-- Features Section -->
+        <div class="features">
+            <div class="container">
+                <h2 class="section-title">OUR <span>PREMIUM</span> SERVICES</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hamburger"></i>
+                        </div>
+                        <h3>Casual Dining</h3>
+                        <p>Enjoy delicious food in a relaxed atmosphere with our carefully crafted menu featuring crowd favorites and local flavors.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wine-glass-alt"></i>
+                        </div>
+                        <h3>Premium Bar Lounge</h3>
+                        <p>Relax in our sophisticated lounge with handcrafted cocktails, fine wines, and premium spirits.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Luxury Car Wash</h3>
+                        <p>While you dine and relax, let us pamper your vehicle with our premium car care services.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Live Entertainment</h3>
+                        <p>Enjoy curated music performances and special events in our vibrant atmosphere.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="page" style="background-color: var(--cream);">
+    <!-- Menu Page -->
+    <section id="menu" class="page-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
+            <h2 class="section-title">OUR <span>FOOD & DRINKS</span></h2>
+            
+            <div class="menu-tabs">
+                <button class="menu-tab-btn active" data-tab="food">Food Menu</button>
+                <button class="menu-tab-btn" data-tab="alcohol">Alcohol Specials</button>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Chat</h3>
-                    <p>Whether you're planning an event, interested in my services, or just want to connect, I'd love to hear from you. Here's how you can reach me:</p>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
+            
+            <div class="menu-tab-content active" id="food">
+                <div class="content-container">
+                    <div class="content-text">
+                        <h2>DELICIOUS <span>FOOD SELECTION</span></h2>
+                        <p>Our menu features crowd favorites and comfort food done right. From juicy burgers and shareable appetizers to satisfying mains, we've got something for everyone.</p>
+                        
+                        <div class="menu-category">
+                            <h3>Appetizers</h3>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Flamingo Wings</div>
+                                    <div class="menu-item-price">R120</div>
+                                </div>
+                                <div class="menu-item-description">Crispy chicken wings with your choice of sauce - buffalo, BBQ, or peri-peri</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Loaded Nachos</div>
+                                    <div class="menu-item-price">R95</div>
+                                </div>
+                                <div class="menu-item-description">Tortilla chips topped with cheese, jalapeños, sour cream, and guacamole</div>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>WhatsApp</h4>
-                            <p>+27 67 636 2605</p>
-                            <a href="https://wa.me/27676362605?text=Hi%20FuglyMammie,%20I'd%20like%20to%20inquire%20about%20your%20services" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i> Message Me
+                        
+                        <div class="menu-category">
+                            <h3>Burgers & Sandwiches</h3>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Flamingo Burger</div>
+                                    <div class="menu-item-price">R150</div>
+                                </div>
+                                <div class="menu-item-description">Beef patty with cheese, lettuce, tomato, and our special sauce</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Chicken Avocado Club</div>
+                                    <div class="menu-item-price">R135</div>
+                                </div>
+                                <div class="menu-item-description">Grilled chicken, bacon, avocado, and mayo on toasted bread</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Food Gallery Section -->
+                <div class="square-gallery-section" style="margin-top: 60px;">
+                    <h3 class="section-title" style="font-size: 2rem;">FOOD <span>GALLERY</span></h3>
+                    <div class="square-gallery-grid">
+                        <div class="square-gallery-item">
+                            <img src="food1.jpg" alt="Delicious Burger" data-src="food1.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food2.jpg" alt="Loaded Nachos" data-src="food2.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food3.jpg" alt="Flamingo Wings" data-src="food3.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food4.jpg" alt="Chicken Avocado Club" data-src="food4.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food5.jpg" alt="Gourmet Pizza" data-src="food5.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food6.jpg" alt="Fresh Salad" data-src="food6.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food7.jpg" alt="Steak Dinner" data-src="food7.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food8.jpg" alt="Seafood Platter" data-src="food8.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food9.jpg" alt="Dessert Selection" data-src="food9.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food10.jpg" alt="Breakfast Special" data-src="food10.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food11.jpg" alt="Vegetarian Options" data-src="food11.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="food12.jpg" alt="Kids Menu" data-src="food12.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-tab-content" id="alcohol">
+                <div class="content-container">
+                    <div class="content-text">
+                        <h2>PREMIUM <span>ALCOHOL SELECTION</span></h2>
+                        <p>Discover our carefully curated selection of spirits, cocktails, and beverages. From classic favorites to signature creations, we have the perfect drink for every occasion.</p>
+                        
+                        <div class="menu-category">
+                            <h3>Signature Cocktails</h3>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Flamingo Fizz</div>
+                                    <div class="menu-item-price">R85</div>
+                                </div>
+                                <div class="menu-item-description">Gin, elderflower, lime, and prosecco with a splash of cranberry</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Tropical Sunset</div>
+                                    <div class="menu-item-price">R90</div>
+                                </div>
+                                <div class="menu-item-description">Rum, pineapple, coconut, and orange with a hint of grenadine</div>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-category">
+                            <h3>Premium Spirits</h3>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Johnnie Walker Black</div>
+                                    <div class="menu-item-price">R65/shot</div>
+                                </div>
+                                <div class="menu-item-description">Smooth blended Scotch whisky</div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-name">Bacardi Superior</div>
+                                    <div class="menu-item-price">R55/shot</div>
+                                </div>
+                                <div class="menu-item-description">Premium white rum perfect for mixing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alcohol Gallery Section -->
+                <div class="square-gallery-section" style="margin-top: 60px;">
+                    <h3 class="section-title" style="font-size: 2rem;">DRINKS <span>GALLERY</span></h3>
+                    <div class="square-gallery-grid">
+                        <div class="square-gallery-item">
+                            <img src="cocktail1.jpg" alt="Flamingo Fizz Cocktail" data-src="cocktail1.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail2.jpg" alt="Tropical Sunset" data-src="cocktail2.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail3.jpg" alt="Premium Whisky Selection" data-src="cocktail3.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail4.jpg" alt="Craft Beer" data-src="cocktail4.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail5.jpg" alt="Wine Collection" data-src="cocktail5.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail6.jpg" alt="Signature Martinis" data-src="cocktail6.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail7.jpg" alt="Rum Selection" data-src="cocktail7.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail8.jpg" alt="Vodka Cocktails" data-src="cocktail8.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail9.jpg" alt="Tequila Shots" data-src="cocktail9.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail10.jpg" alt="Gin & Tonic" data-src="cocktail10.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail11.jpg" alt="Champagne" data-src="cocktail11.jpg">
+                        </div>
+                        <div class="square-gallery-item">
+                            <img src="cocktail12.jpg" alt="Non-Alcoholic Options" data-src="cocktail12.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Wash Page - ENHANCED WITH MORE IMAGES -->
+    <section id="car-wash" class="page-section">
+        <div class="container">
+            <h2 class="section-title">PREMIUM <span>CAR CARE</span></h2>
+            
+            <div class="content-container">
+                <div class="content-media">
+                    <img src="PRICE.jpg" alt="Car Wash Service">
+                    <div class="car-wash-media-grid">
+                        <div class="media-item">
+                            <img src="carwaSH.jpg" alt="Car Detailing" data-src="carwaSH.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="CW.jpg" alt="Premium Service" data-src="CW.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="exterior.jpg" alt="Exterior Cleaning" data-src="exterior.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="interior.jpg" alt="Interior Detailing" data-src="interior.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="car-wash-5.jpg" alt="Wheel Cleaning" data-src="car-wash-5.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="car-wash-6.jpg" alt="Polishing Service" data-src="car-wash-6.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="car-wash-7.jpg" alt="Final Inspection" data-src="car-wash-7.jpg">
+                        </div>
+                        <div class="media-item">
+                            <img src="car-wash-8.jpg" alt="Completed Service" data-src="car-wash-8.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-text">
+                    <h2>LUXURY <span>CAR WASH</span></h2>
+                    <p>While you enjoy our food and drinks, let us take care of your vehicle with our state-of-the-art car care services. We use only the highest quality products and techniques to make your car shine.</p>
+                    
+                    <div class="features-grid" style="margin-top: 30px;">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                            <h3>Exterior Detailing</h3>
+                            <p>Complete exterior cleaning with premium products</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-soap"></i>
+                            </div>
+                            <h3>Interior Cleaning</h3>
+                            <p>Thorough interior vacuuming and conditioning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Packages Section -->
+            <div class="car-wash-services">
+                <h2 class="section-title">OUR <span>SERVICE PACKAGES</span></h2>
+                
+                <div class="service-packages">
+                    <div class="service-package">
+                        <h3>BASIC WASH</h3>
+                        <div class="price">R150</div>
+                        <ul>
+                            <li>Exterior hand wash</li>
+                            <li>Wheel cleaning</li>
+                            <li>Tire dressing</li>
+                            <li>Window cleaning</li>
+                            <li>Interior vacuum</li>
+                        </ul>
+                        <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I'm%20interested%20in%20the%20Basic%20Wash%20package" class="btn">
+                            <i class="fab fa-whatsapp"></i> Book This Package
+                        </a>
+                    </div>
+                    
+                    <div class="service-package">
+                        <h3>PREMIUM DETAIL</h3>
+                        <div class="price">R350</div>
+                        <ul>
+                            <li>Everything in Basic Wash</li>
+                            <li>Interior deep cleaning</li>
+                            <li>Dashboard conditioning</li>
+                            <li>Exterior wax application</li>
+                            <li>Air freshener</li>
+                        </ul>
+                        <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I'm%20interested%20in%20the%20Premium%20Detail%20package" class="btn">
+                            <i class="fab fa-whatsapp"></i> Book This Package
+                        </a>
+                    </div>
+                    
+                    <div class="service-package">
+                        <h3>ULTIMATE SHINE</h3>
+                        <div class="price">R600</div>
+                        <ul>
+                            <li>Everything in Premium Detail</li>
+                            <li>Paint polishing</li>
+                            <li>Leather conditioning</li>
+                            <li>Engine bay cleaning</li>
+                            <li>Ceramic coating</li>
+                        </ul>
+                        <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I'm%20interested%20in%20the%20Ultimate%20Shine%20package" class="btn">
+                            <i class="fab fa-whatsapp"></i> Book This Package
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Page -->
+    <section id="events" class="page-section">
+        <div class="container">
+            <h2 class="section-title">UPCOMING <span>EVENTS</span></h2>
+            
+            <div class="events-tabs">
+                <button class="tab-btn active" data-tab="upcoming">Upcoming Events</button>
+                <button class="tab-btn" data-tab="posters">Event Posters</button>
+            </div>
+            
+            <div class="tab-content active" id="upcoming">
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="EVENTC.jpg" alt="DJ Night" data-src="EVENTC.jpg">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">TBA</span>
+                            <h3 class="event-title">Bottomless and Boujee</h3>
+                            <p class="event-description">TBA.</p>
+                            <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I'm%20interested%20in%20your%20Bottomless%20and%20Boujee%20event" class="btn">
+                                <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
                             </a>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="EVENT.jpg" alt="Karaoke Night" data-src="EVENT.jpg">
                         </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>boitumeloangela814@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Call</h4>
-                            <p>+27 67 636 2605</p>
+                        <div class="event-content">
+                            <span class="event-date">NOV 1, 2025</span>
+                            <h3 class="event-title">Flamingo Saturday</h3>
+                            <p class="event-description">Be there or Be told.</p>
+                            <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I'm%20interested%20in%20your%20Flamingo%20Saturday%20event" class="btn">
+                                <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="EVENT 2.jpg" alt="Live Performance" data-src="EVENT 2.jpg">
+                        </div>
+                        <div class="event-content">
+                            <span class="event-date">NOV 8, 2025</span>
+                            <h3 class="event-title">Big Bird Saturday</h3>
+                            <p class="event-description">Enjoy an evening of live music with talented Djs in a vibrant setting.</p>
+                            <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I'm%20interested%20in%20your%20Big%20Bird%20Saturday%20event" class="btn">
+                                <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="booking-form">
-                    <h3>Quick Question?</h3>
-                    <form id="contactForm">
+            </div>
+            
+            <div class="tab-content" id="posters">
+                <h3 style="text-align:center; margin-bottom:30px; color: var(--text-primary);">EVENT POSTERS & PROMOTIONAL MATERIALS</h3>
+                <div class="posters-grid">
+                    <div class="poster-item">
+                        <img src="poster1.jpg" alt="Event Poster 1" data-src="poster1.jpg">
+                    </div>
+                    <div class="poster-item">
+                        <img src="poster2.jpg" alt="Event Poster 2" data-src="poster2.jpg">
+                    </div>
+                    <div class="poster-item">
+                        <img src="poster3.jpg" alt="Event Poster 3" data-src="poster3.jpg">
+                    </div>
+                    <div class="poster-item">
+                        <img src="poster4.jpg" alt="Event Poster 4" data-src="poster4.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Page - ENHANCED WITH 15 IMAGES -->
+    <section id="gallery" class="page-section gallery-section">
+        <div class="container">
+            <h2 class="section-title">OUR <span>GALLERY</span></h2>
+            <div class="content-container">
+                <div class="content-text">
+                    <h2>EXPERIENCE <span>EATERY AT FLAMINGO</span></h2>
+                    <p>Take a visual journey through our vibrant spaces, delicious food, and exciting atmosphere. From casual dinners to lively gatherings, every moment at Eatery at Flamingo is memorable.</p>
+                </div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="fla.jpg" alt="Restaurant Interior" data-src="fla.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="sgil.jpg" alt="Dining Area" data-src="sgil.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g2.jpg" alt="Cocktails" data-src="g2.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g3.jpg" alt="Event Space" data-src="g3.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="groove.jpg" alt="Bar Food" data-src="groove.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g6.jpg" alt="Specialty Food" data-src="g6.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="gs.jpg" alt="Restaurant Ambiance" data-src="gs.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g12.jpg" alt="Dining Experience" data-src="g12.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g11.jpg" alt="Sunday Specials" data-src="g11.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g9.jpg" alt="Drink Selection" data-src="g9.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g10.jpg" alt="Food Presentation" data-src="g10.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g7.jpg" alt="Event Atmosphere" data-src="g7.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g1.jpg" alt="Live Music" data-src="g1.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g4.jpg" alt="DJ Performance" data-src="g4.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="g8.jpg" alt="Car Wash Service" data-src="g8.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="container">
+            <h2 class="section-title">GET IN <span>TOUCH</span></h2>
+            
+            <div class="content-container">
+                <div class="content-text">
+                    <h2>VISIT <span>EATERY AT FLAMINGO</span></h2>
+                    <p>We'd love to hear from you. Whether you have questions about our services, want to provide feedback, or are interested in partnerships, feel free to reach out.</p>
+                    
+                    <div class="contact-form" style="margin-top: 30px;">
                         <div class="form-group">
-                            <label for="contact-name">Your Name</label>
-                            <input type="text" id="contact-name" class="form-control" required>
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="Your Name">
                         </div>
                         <div class="form-group">
                             <label for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" class="form-control" required>
+                            <input type="email" id="contact-email" class="form-control" placeholder="Your Email">
                         </div>
                         <div class="form-group">
-                            <label for="inquiry-type">What's This About?</label>
-                            <select id="inquiry-type" class="form-control" required>
-                                <option value="">Select Inquiry Type</option>
-                                <option value="booking">Event Booking</option>
-                                <option value="other">Just Saying Hi</option>
-                            </select>
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" placeholder="Your Message" rows="5"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="contact-message">Your Message</label>
-                            <textarea id="contact-message" class="form-control" placeholder="What's on your mind?..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                        <button type="submit" class="btn">SEND MESSAGE</button>
+                    </div>
+                </div>
+                <div class="content-text">
+                    <h2>CONTACT <span>INFORMATION</span></h2>
+                    <div style="margin-bottom: 30px;">
+                        <p><i class="fas fa-map-marker-alt" style="color: var(--accent-red); margin-right: 10px;"></i> Flamingo Avenue, Kagiso 1754</p>
+                        <p><i class="fas fa-phone" style="color: var(--accent-red); margin-right: 10px;"></i> +27 62 136 9848</p>
+                        <p><i class="fas fa-envelope" style="color: var(--accent-red); margin-right: 10px;"></i> flamingolifestylerestaurant@gmail.com</p>
+                        <p><i class="fas fa-clock" style="color: var(--accent-red); margin-right: 10px;"></i> Open Daily: 12PM - Till Late</p>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px;">FOLLOW US</h3>
+                    <p>Stay connected with Eatery at Flamingo through our social media channels for the latest updates, events, and exclusive content.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/27621369848" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="https://wa.me/27621369848?text=Hi%20Eatery%20at%20Flamingo%2C%20I%20would%20like%20to%20get%20more%20information" class="btn btn-whatsapp" style="width: auto; display: inline-block;">
+                            <i class="fab fa-whatsapp"></i> Chat with us on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1148,179 +1861,342 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Fugly<span>Mammie</span></div>
-                <p>Professional MC & Club Host</p>
-                <p>Boitumelo Makhene</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+                <div class="footer-column">
+                    <h3>EATERY AT FLAMINGO</h3>
+                    <p>Where casual dining meets premium bar lounge and luxury car care. Experience the perfect blend of great food, drinks, and entertainment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/27621369848" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="menu">Menu</a></li>
+                        <li><a href="#" class="nav-link" data-page="car-wash">Car Wash</a></li>
+                        <li><a href="#" class="nav-link" data-page="events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>INFORMATION</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONTACT US</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Flamingo Avenue, Kagiso 1754</li>
+                        <li><i class="fas fa-phone"></i> +27 62 136 9848</li>
+                        <li><i class="fas fa-envelope"></i> flamingolifestylerestaurant@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Open Daily: 12PM - Till Late</li>
+                    </ul>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 FuglyMammie. All rights reserved.
+                <p>&copy; 2025 EATERY AT FLAMINGO. ALL RIGHTS RESERVED.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <img id="modalImage" class="modal-image" src="" alt="">
-            <div class="modal-details">
-                <h3 id="modalTitle"></h3>
-                <div id="modalDate" class="modal-date"></div>
-                <p id="modalDescription" class="modal-description"></p>
-                <div id="modalPhotographer" class="modal-photographer"></div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Mobile menu functionality
+        // Page Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+                
+                // Hide all pages
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show target page
+                document.getElementById(targetPage).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                // Close mobile menu if open
+                mainNav.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenu.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            if (mainNav.classList.contains('active')) {
+                mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Events Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Menu Tabs
+        const menuTabBtns = document.querySelectorAll('.menu-tab-btn');
+        const menuTabContents = document.querySelectorAll('.menu-tab-content');
+        
+        menuTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                menuTabBtns.forEach(b => b.classList.remove('active'));
+                menuTabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Booking Form Toggle
+        const bookingToggle = document.getElementById('bookingToggle');
+        const bookingForm = document.getElementById('bookingForm');
+        
+        bookingToggle.addEventListener('click', () => {
+            bookingForm.classList.toggle('active');
+            bookingToggle.classList.toggle('active');
+        });
+
+        // Booking Form Submission
+        const bookingFormElement = document.getElementById('bookingFormElement');
+        bookingFormElement.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your reservation! We will contact you shortly to confirm your booking.');
+            this.reset();
+            // Optionally close the form after submission
+            bookingForm.classList.remove('active');
+            bookingToggle.classList.remove('active');
+        });
+        
+        // Update WhatsApp number - replace with your actual number
+        function updateWhatsAppLinks() {
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            const phoneNumber = '27621369848'; // Your actual number
+            
+            whatsappLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                const newHref = currentHref.replace(/wa\.me\/\d+/, `wa.me/${phoneNumber}`);
+                link.setAttribute('href', newHref);
+            });
+        }
+        
+        // Call this function when the page loads
+        updateWhatsAppLinks();
+
+        // Instagram Style Image Viewer
+        const imageViewer = document.getElementById('imageViewer');
+        const viewerImage = document.getElementById('viewerImage');
+        const closeViewer = document.getElementById('closeViewer');
+        const prevImage = document.getElementById('prevImage');
+        const nextImage = document.getElementById('nextImage');
+        const imageCounter = document.getElementById('imageCounter');
+        
+        let currentImageIndex = 0;
+        let galleryImages = [];
+        
+        // Get all gallery images
+        function getAllGalleryImages() {
+            const images = [];
+            
+            // Food gallery images
+            document.querySelectorAll('.square-gallery-item img').forEach(img => {
+                images.push({
+                    src: img.getAttribute('data-src') || img.getAttribute('src'),
+                    alt: img.getAttribute('alt')
+                });
+            });
+            
+            // Main gallery images
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                images.push({
+                    src: img.getAttribute('data-src') || img.getAttribute('src'),
+                    alt: img.getAttribute('alt')
+                });
+            });
+            
+            // Car wash images
+            document.querySelectorAll('.car-wash-media-grid img').forEach(img => {
+                images.push({
+                    src: img.getAttribute('data-src') || img.getAttribute('src'),
+                    alt: img.getAttribute('alt')
+                });
+            });
+            
+            // Event images
+            document.querySelectorAll('.event-image img').forEach(img => {
+                images.push({
+                    src: img.getAttribute('data-src') || img.getAttribute('src'),
+                    alt: img.getAttribute('alt')
+                });
+            });
+            
+            // Poster images
+            document.querySelectorAll('.poster-item img').forEach(img => {
+                images.push({
+                    src: img.getAttribute('data-src') || img.getAttribute('src'),
+                    alt: img.getAttribute('alt')
+                });
+            });
+            
+            return images;
+        }
+        
+        // Open image viewer
+        function openImageViewer(index) {
+            currentImageIndex = index;
+            galleryImages = getAllGalleryImages();
+            
+            if (galleryImages.length === 0) return;
+            
+            viewerImage.src = galleryImages[currentImageIndex].src;
+            viewerImage.alt = galleryImages[currentImageIndex].alt;
+            updateImageCounter();
+            imageViewer.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Close image viewer
+        function closeImageViewer() {
+            imageViewer.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        // Navigate to previous image
+        function showPrevImage() {
+            if (galleryImages.length === 0) return;
+            
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            viewerImage.src = galleryImages[currentImageIndex].src;
+            viewerImage.alt = galleryImages[currentImageIndex].alt;
+            updateImageCounter();
+        }
+        
+        // Navigate to next image
+        function showNextImage() {
+            if (galleryImages.length === 0) return;
+            
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            viewerImage.src = galleryImages[currentImageIndex].src;
+            viewerImage.alt = galleryImages[currentImageIndex].alt;
+            updateImageCounter();
+        }
+        
+        // Update image counter
+        function updateImageCounter() {
+            imageCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+        
+        // Add event listeners to all gallery images
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const navUl = document.querySelector('nav ul');
+            const allGalleryImages = document.querySelectorAll('.square-gallery-item img, .gallery-item img, .car-wash-media-grid img, .event-image img, .poster-item img');
             
-            mobileMenu.addEventListener('click', function() {
-                navUl.classList.toggle('active');
-            });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#home') {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                    
-                    // Close mobile menu after clicking a link
-                    if (window.innerWidth <= 768) {
-                        navUl.classList.remove('active');
-                    }
+            allGalleryImages.forEach((img, index) => {
+                // For desktop - click to open
+                img.addEventListener('click', function() {
+                    openImageViewer(index);
+                });
+                
+                // For mobile - touch and hold to open
+                let touchTimer;
+                
+                img.addEventListener('touchstart', function(e) {
+                    touchTimer = setTimeout(() => {
+                        e.preventDefault();
+                        openImageViewer(index);
+                    }, 500); // 500ms hold
+                });
+                
+                img.addEventListener('touchend', function() {
+                    clearTimeout(touchTimer);
+                });
+                
+                img.addEventListener('touchmove', function() {
+                    clearTimeout(touchTimer);
                 });
             });
             
-            // Form submission handling
-            const bookingForm = document.getElementById('bookingForm');
-            const contactForm = document.getElementById('contactForm');
-            
-            bookingForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thanks for reaching out! I\'ll get back to you within 24 hours to discuss your event.');
-                bookingForm.reset();
-            });
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thanks for your message! I\'ll respond as soon as I can.');
-                contactForm.reset();
-            });
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('nav') && window.innerWidth <= 768) {
-                    navUl.classList.remove('active');
+            // Close viewer events
+            closeViewer.addEventListener('click', closeImageViewer);
+            imageViewer.addEventListener('click', function(e) {
+                if (e.target === imageViewer) {
+                    closeImageViewer();
                 }
             });
-
-            // Image Modal functionality
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDate = document.getElementById('modalDate');
-            const modalDescription = document.getElementById('modalDescription');
-            const modalPhotographer = document.getElementById('modalPhotographer');
-            const closeModal = document.querySelector('.close-modal');
-
-            // Add click event to all gig and gallery items
-            document.querySelectorAll('.gig-item, .gallery-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const imageSrc = this.getAttribute('data-image');
-                    const title = this.getAttribute('data-title');
-                    const date = this.getAttribute('data-date');
-                    const description = this.getAttribute('data-description');
-                    const photographer = this.getAttribute('data-photographer');
-                    
-                    modalImage.src = imageSrc;
-                    modalTitle.textContent = title;
-                    
-                    // Handle date display
-                    if (date) {
-                        modalDate.innerHTML = `<i class="fas fa-calendar-alt"></i><span>${date}</span>`;
-                        modalDate.style.display = 'flex';
-                    } else {
-                        modalDate.style.display = 'none';
-                    }
-                    
-                    // Handle description display
-                    if (description) {
-                        modalDescription.textContent = description;
-                        modalDescription.style.display = 'block';
-                    } else {
-                        modalDescription.style.display = 'none';
-                    }
-                    
-                    // Handle photographer credit
-                    if (photographer) {
-                        modalPhotographer.textContent = `Photo by: ${photographer}`;
-                        modalPhotographer.style.display = 'block';
-                    } else {
-                        modalPhotographer.style.display = 'none';
-                    }
-                    
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
-                });
-            });
-
-            // Close modal when clicking the X
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            });
-
-            // Close modal when clicking outside the content
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
-                }
-            });
-
-            // Close modal with Escape key
+            
+            // Navigation events
+            prevImage.addEventListener('click', showPrevImage);
+            nextImage.addEventListener('click', showNextImage);
+            
+            // Keyboard navigation
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                if (!imageViewer.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    closeImageViewer();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrevImage();
+                } else if (e.key === 'ArrowRight') {
+                    showNextImage();
                 }
             });
+            
+            // Swipe navigation for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            imageViewer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            imageViewer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe left - next image
+                    showNextImage();
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe right - previous image
+                    showPrevImage();
+                }
+            }
         });
     </script>
 </body>
